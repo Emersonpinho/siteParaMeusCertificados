@@ -1,4 +1,3 @@
-/* Estilo base e animação para o layout */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -8,112 +7,197 @@
     box-sizing: border-box;
 }
 
-body {
+:root{
+    --all-transition: 1s ease;
+    --opacity-transition: .3s ease;
+}
+
+body{
     background: #3674be;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
     overflow: hidden;
+    transition: var(--all-transition);
 }
 
-/* Configuração do carrossel */
-.carousel {
+body::before{
+    content: '';
+    position: absolute;
+    left: 3.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 700px;
+    height: 700px;
+    background: rgba(255,255,255,.8);
+    border-radius: 50%;
+    filter: blur(200px);
+
+}
+
+.img-box{
+    left: -72%;
+    position: absolute;
+    top : 50%;
+    transform: translateY(-50%);
+    width: 1300px;
+    height: 1300px;
+}
+
+.img-box .img-list{
+    height: inherit;
+    transform: rotate(-120deg);
+}
+
+.img-list .img-slider{
+    height: inherit;
+    transition: var(--all-transition);
+}
+
+.img-slider .img-item{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(calc(-360deg / 6 * var(--i))) scale(.8);
+    transform-origin:  650px;
+    transition: var(--all-transition);
+}
+
+.img-slider .img-item.active{
+    transform: translateY(-50%) rotate(calc(-360deg / 6 * var(--i))) scale(0.9) translateX(-65%);
+    z-index: 1;
+}
+
+.img-item .item{
     display: flex;
+    justify-content: center;
     align-items: center;
-    position: relative;
+    transition: var(--all-transition);
 }
 
-.img-box, .info-box {
-    width: 600px;
-    height: 400px;
+.img-item .item img{
+    transform:  rotate(calc(360deg / 6 * var(--i))) rotate(120deg);
+    filter: blur(8px);
+    transition: var(--all-transition);
 }
 
-.img-box .img-list .img-slider {
-    display: flex;
-    justify-content: space-around;
-    transition: transform 1s ease;
+.img-item.active .item img{
+    filter: blur(0);
 }
 
-.img-item {
-    position: relative;
+.info-box{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+}
+
+.info-box .info-item{
+    position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0.3;
-    transition: transform 1s ease, opacity 0.5s;
-}
-
-.img-item.active {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Caixa de informações */
-.info-box {
+    border-radius: 40px 0 0 40px;
+    padding: 0 70px;
+    color: #fff;
     display: flex;
-    align-items: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s;
-}
-
-.info-box .info-item {
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(100%);
     opacity: 0;
-    transition: opacity 1s ease;
+    box-shadow: none;
+    transition: transform var(--all-transition),opacity var(--opacity-transition), box-shaow var(--all-transition);
 }
 
-.info-box .info-item.active {
+.info-box .info-item.active{
+    transform: translateX(0);
     opacity: 1;
+    box-shadow: 0 0 30px rgba(0,0,0,.2);
 }
 
-.info-item h2, .info-item h3 {
-    color: #333;
+.info-item h2{
+    font-size: 30px;
 }
 
-.info-item .btn {
-    display: inline-flex;
-    margin-top: 10px;
-    padding: 10px 20px;
+.info-item h2:nth-child(2){
+    margin: 20px 0;
+}
+
+.colors span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.colors span.active{
+    outline: 3px solid #fff;
+}
+
+.colors span:nth-child(1){
     background: #3674be;
-    color: white;
+}
+
+.colors span:nth-child(2){
+    background: #d26181;
+}
+
+.colors span:nth-child(3){
+    background: #ceb13d;
+}
+
+.colors span:nth-child(4){
+    background: #c6414c;
+}
+
+.colors span:nth-child(5){
+    background: #171f2b;
+}
+
+.colors span:nth-child(6){
+    background: #50aa61;
+}
+
+.info-item p{
+    font-size: 16px;
+    margin: 20px 0 25px;
+}
+
+.info-item .btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 47px;
+    background: #fff;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    font-size: 16px;
+    color: #333;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    font-weight: 600;
 }
 
-.info-item .btn:hover {
-    background: #1f4a8a;
-}
-
-.navigation {
+.navigation{
     position: absolute;
-    bottom: 10%;
+    left: 23%;
+    bottom: 7%;
+    width: 150px;
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    z-index: 100;
 }
 
-.navigation span {
+.navigation span{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     width: 50px;
     height: 50px;
     background: rgba(255,255,255,.2);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    font-size: 24px;
-    color: white;
-    transition: background 0.3s ease;
+    font-size: 30px;
+    color: #fff;
 }
 
-.navigation span:hover {
-    background: rgba(255,255,255,.5);
-}
