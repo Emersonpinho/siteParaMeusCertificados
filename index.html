@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Certificados</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="carousel">
+        <div class="img-box">
+            <div class="img-list">
+                <div class="img-slider">
+                    <!-- Cada .img-item representa um certificado -->
+                    <div class="img-item active" style="--i:1;">
+                        <div class="item">
+                            <img src="capturaCertificadoGemini.png" alt="Certificado 1">
+                        </div>
+                    </div>
+                    <div class="img-item" style="--i:2;">
+                        <div class="item">
+                            <img src="capturaNlwPocket.png" alt="Certificado 2">
+                        </div>
+                    </div>
+                    <div class="img-item" style="--i:3;">
+                        <div class="item">
+                            <img src="images/certificado3.png" alt="Certificado 3">
+                        </div>
+                    </div>
+                    <!-- Adicione mais certificados conforme necessário -->
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <!-- Informações dos certificados -->
+            <div class="info-item active">
+                <h2>Certificado de Conclusão em Python</h2>
+                <h3>Emitido em: 2023</h3>
+                <p>Curso completo de Python para iniciantes e avançados.</p>
+                <a href="certificadoGemini.pdf" target="_blank" class="btn">Ver Certificado</a>
+            </div>
+
+            <div class="info-item">
+                <h2>Certificado de Desenvolvimento Web</h2>
+                <h3>Emitido em: 2022</h3>
+                <p>Domínio em HTML, CSS, JavaScript e PHP.</p>
+                <a href="pdfs/certificado2.pdf" target="_blank" class="btn">Ver Certificado</a>
+            </div>
+
+            <div class="info-item">
+                <h2>Certificado de Ciência de Dados</h2>
+                <h3>Emitido em: 2024</h3>
+                <p>Estudos de análise de dados com Python e SQL.</p>
+                <a href="pdfs/certificado3.pdf" target="_blank" class="btn">Ver Certificado</a>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <span class="prev-btn"><i class="bx bx-chevron-left"></i></span>
+            <span class="next-btn"><i class="bx bx-chevron-right"></i></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
