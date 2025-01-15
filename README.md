@@ -35,7 +35,7 @@ Para rodar o projeto localmente, siga as etapas abaixo:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/Emerson10110/siteParaMeusCertificados.git
+   git clone https://github.com/Emersonpinho/siteParaMeusCertificados.git
    ```
 2. Navegue até o diretório do projeto:
    ```bash
